@@ -1,10 +1,28 @@
-[gd_scene load_steps=9 format=4 uid="uid://b2un11q6lbbto"]
+[gd_scene load_steps=11 format=4 uid="uid://b2un11q6lbbto"]
 
 [ext_resource type="Script" uid="uid://ddob70bskbipq" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c78ykeopmd2e5" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cgqyi2pss4lt3" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="Shader" uid="uid://bw3g6bbunxyr4" path="res://aquatic.gdshader" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://o6yj3lhc8qi2" path="res://canvas_layer.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://b5f3mw53w723v" path="res://assets/art/gameover.wav" id="6_272bh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("3_7mycd")
+shader_parameter/shallow_color = Color(0.15, 0.7, 0.85, 1)
+shader_parameter/deep_color = Color(0.03, 0.2, 0.35, 1)
+shader_parameter/bubble_color = Color(1, 1, 1, 1)
+shader_parameter/bubble_alpha = 0.25
+shader_parameter/bubble_speed = 0.1
+shader_parameter/bubble_soft = 0.02
+shader_parameter/bubble_min_r = 0.012
+shader_parameter/bubble_max_r = 0.065
+shader_parameter/bubble_cols = 10
+shader_parameter/bubble_layers = 3
+shader_parameter/bubble_stay_in_cell = true
+shader_parameter/bubble_margin = 0.006
+shader_parameter/bubble_drift_amp = 0.007
+shader_parameter/master_seed = 11.0
 
 [sub_resource type="Curve2D" id="Curve2D_ig7tw"]
 _data = {
@@ -26,6 +44,7 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_272bh")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
