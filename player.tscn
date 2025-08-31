@@ -35,7 +35,7 @@ animations = [{
 radius = 25.0
 height = 64.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource("1_sweqy")
 metadata/_edit_group_ = true
 
