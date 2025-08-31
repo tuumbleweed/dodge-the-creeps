@@ -19,6 +19,8 @@ func game_over() -> void:
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	await $DeathSound.finished
+	await get_tree().create_timer(0.2).timeout
 
 func new_game() -> void:
 	score = 0
